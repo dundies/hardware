@@ -6,6 +6,7 @@ import com.google.common.collect.Lists;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -22,16 +23,8 @@ public class ProductRestController {
     }
 
     @GetMapping
-    public List<Product> getProducts() {
-
-//        final Product c2 = new Product();
-//        c2.setId(1L);
-//        c2.setName("C2 Apple");
-//
-//        final Product kokoCrunch = new Product();
-//        kokoCrunch.setId(2L);
-//        kokoCrunch.setName("Koko Crunch");
-
-        return productService.getProducts();
+    public List<Product> getProducts(@RequestParam(name = "page", required = false, defaultValue = "1") Integer page,
+                                     @RequestParam(name = "pageSize", required = false, defaultValue = "10") Integer pageSize) {
+        return productService.getProducts(page, pageSize);
     }
 }

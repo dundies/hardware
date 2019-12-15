@@ -1,0 +1,1 @@
+INSERT INTO hardware.product (id, description, dtime_created, dtime_updated, name, quantity, created_by) VALUES (2, 'Generic Scissor', '2019-12-15', '2019-12-15', 'Scissor', 1, 1);
